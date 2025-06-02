@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+package OrganizationServices;
+import "google/protobuf/wrappers.proto";
+
+
+message CreateOrganizationRequest {
+  string Name = 1;
+  string Address = 2;
+}
+
+message CreateOrganizationResponse {
+  int32 OrganizationId = 1;
+}
+
+
+message GetOrganizationRequest {
+    int32 Id = 1;
+}
+
+message GetOrganizationResponse {
+    string Name = 1;
+    string Address = 2;
+    int64 CreatedAt = 3;
+    google.protobuf.Int64Value UpdatedAt = 4;
+}
+
+message QueryOrganizationsRequest {
+    google.protobuf.Int32Value Page = 1;
+    google.protobuf.Int32Value PageSize = 2;
+    google.protobuf.StringValue OrderBy = 3;
+    google.protobuf.StringValue Direction = 4;
+    google.protobuf.StringValue QueryString = 5;
+}
+
+message QueryOrganizationsResponse {
+    int32 Page = 1;
+    int32 PageSize = 2;
+    int32 Total = 3;
+    repeated OrganizationList OrganizationList = 4;
+}
+
+message OrganizationList {
+    int32 id = 1;
+    string name = 2;
+    string address = 3;
+    int64 createdAt = 4;
+}
+
+message UpdateOrganizationRequest {
+    int32 Id = 1;
+    string Name = 2;
+    string Address = 3;
+}
+
+message UpdateOrganizationResponse {
+}
+
+message DeleteOrganizationRequest {
+    int32 Id = 1;
+}
+
+message DeleteOrganizationResponse {
+}
+
+service OrganizationServices {
+    rpc CreateOrganization (CreateOrganizationRequest) returns (CreateOrganizationResponse);
+    rpc GetOrganization(GetOrganizationRequest) returns (GetOrganizationResponse);
+    rpc QueryOrganizations(QueryOrganizationsRequest) returns (QueryOrganizationsResponse);
+    rpc UpdateOrganization(UpdateOrganizationRequest) returns (UpdateOrganizationResponse);
+    rpc DeleteOrganization(DeleteOrganizationRequest) returns (DeleteOrganizationResponse);
+}
