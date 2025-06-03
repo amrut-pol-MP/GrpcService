@@ -20,9 +20,9 @@ Check if the container is running:
 
 Endpoints
 
-Organization Operations
-    Create Organization
-    Get Organization by ID
-    Query Organizations (Paginated)
-    Update Organization
-    Delete Organization
+Organization Operations - 
+    1. Create Organization
+    2. Get Organization by ID
+    3. Query Organizations (Paginated)
+    4. Update Organization
+    5. Delete Organization
