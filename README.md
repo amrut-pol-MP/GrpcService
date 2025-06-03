@@ -1,25 +1,28 @@
 Project Setup
 
-Install Docker desktop Download image from following command docker pull mcr.microsoft.com/mssql/server:2022-latest
+    Install Docker 
+    Execute the following commands in your terminal:
 
-Setup download image on the docker and run the docker.
+    Download and Run SQL Server Docker Image
+    
+    docker pull mcr.microsoft.com/mssql/server:2022-latest
 
-Start MSSQL Management Studio, check connection with database.
+    docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Ap@12345" -p 1433:1433 mcr.microsoft.com/mssql/server:2022-latest
 
-No need to run migration, it will run automatically once you run the application.
+Check if the container is running:
+	docker ps -a
 
-Verify if database and table's created
+    Start SQL Server Management Studio (SSMS)
+    Connect to the SQL Server instance running in Docker to verify the connection.
+
+    Database Initialization
+    No manual migration is required — the database and tables will be created automatically when you run GrpcService.
 
 Endpoints
 
-GrpcService
-
-Create Organization
-
-Get Organization by ID
-
-Query Organizations (paginated)
-
-Update Organization
-
-Delete Organization
+Organization Operations
+    Create Organization
+    Get Organization by ID
+    Query Organizations (Paginated)
+    Update Organization
+    Delete Organization
