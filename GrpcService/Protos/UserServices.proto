@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+package UserServices;
+import "google/protobuf/wrappers.proto";
+
+message CreateUserRequest {
+  string Name = 1;
+  string UserName = 2;
+  string Email = 3;
+}
+
+message CreateUserResponse {
+  int32 UserId = 1;
+}
+
+message GetUserRequest {
+    int32 Id = 1;
+}
+
+message GetUserResponse {
+    string Name = 1;
+    string Username = 2;
+    string Email = 3;
+    int64 CreatedAt = 4;
+    google.protobuf.Int64Value UpdatedAt = 5;
+}
+
+message QueryUsersRequest {
+    google.protobuf.Int32Value Page = 1;
+    google.protobuf.Int32Value PageSize = 2;
+    google.protobuf.StringValue OrderBy = 3;
+    google.protobuf.StringValue Direction = 4;
+    google.protobuf.StringValue QueryString = 5;
+}
+
+message QueryUsersResponse {
+    int32 Page = 1;
+    int32 PageSize = 2;
+    int32 Total = 3;
+    repeated UsersList Users = 4;
+}
+
+message UsersList {
+    int32 Id = 1;
+    string Name = 2;
+    string Username = 3;
+    string Email = 4;
+    int64 CreatedAt = 6;
+}
+
+message UpdateUserRequest {
+    int32 Id = 1;
+    string Name = 2;
+    string Username = 3;
+    string Email = 4;
+}
+
+message DeleteUserRequest {
+    int32 Id = 1;
+}
+
+message UpdateUserResponse {
+}
+
+message DeleteUserResponse {
+}
+
+
+service UserServices {
+    rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
+    rpc GetUser(GetUserRequest) returns (GetUserResponse);
+    rpc QueryUsers(QueryUsersRequest) returns (QueryUsersResponse);
+    rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+    rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
+}
+

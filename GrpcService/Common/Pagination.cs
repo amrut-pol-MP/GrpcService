@@ -1,4 +1,4 @@
-﻿namespace GrpcService.Services.Organization.Models
+﻿namespace GrpcService.Common
 {
     public class Pagination
     {

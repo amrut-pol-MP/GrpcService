@@ -1,4 +1,6 @@
-﻿namespace GrpcService.Services.Organization.Models
+﻿using GrpcService.Common;
+
+namespace GrpcService.Services.Organization.Models
 {
     public class QueryOrganizationsResult
     {

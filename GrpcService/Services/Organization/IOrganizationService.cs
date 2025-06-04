@@ -11,6 +11,5 @@ namespace GrpcService.Services.Organization
         Result<QueryOrganizationsResult> QueryOrganizations(QueryOrganizationCommand parameters);
         EmptyResult UpdateOrganization(UpdateOrganizationCommand command);
         EmptyResult DeleteOrganization(int id);
-
     }
 }

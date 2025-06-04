@@ -1,4 +1,5 @@
 ﻿using Grpc.Core;
+using GrpcService.Common;
 using GrpcService.Data.Entity;
 using GrpcService.Migrations;
 using GrpcService.Services.Organization.Models;

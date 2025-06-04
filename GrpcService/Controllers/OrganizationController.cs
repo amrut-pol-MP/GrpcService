@@ -1,9 +1,6 @@
 ﻿using Grpc.Core;
-using GrpcService.Services;
 using GrpcService.Services.Organization;
 using GrpcService.Services.Organization.Models;
-using static Grpc.Core.Metadata;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace GrpcService.Controllers
 {

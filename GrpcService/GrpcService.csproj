@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Protobuf Include="Protos\OrganizationServices.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\UserServices.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\UserOrganizationAssociationServices.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
