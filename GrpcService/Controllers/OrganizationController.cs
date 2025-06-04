@@ -94,7 +94,8 @@ namespace GrpcService.Controllers
                             Id = p.Id,
                             Name=p.Name,
                             Address = p.Address,
-                            CreatedAt=p.CreatedAt
+                            CreatedAt=p.CreatedAt,
+                            UpdatedAt = p.UpdatedAt
                         })
                     }
                 };

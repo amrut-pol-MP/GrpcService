@@ -1,28 +1,50 @@
-Project Setup
+# Project Assessment
 
-    Install Docker 
-    Execute the following commands in your terminal:
+This assessment includes two projects: `GrpcService` and `HttpService`. Both are built using **.NET Core 8.0**.
 
-    Download and Run SQL Server Docker Image
-    
-    docker pull mcr.microsoft.com/mssql/server:2022-latest
+---
 
-    docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Ap@12345" -p 1433:1433 mcr.microsoft.com/mssql/server:2022-latest
+## Project Structure
 
-Check if the container is running:
-	docker ps -a
+### GrpcService
+This is a **gRPC** project that defines services for:
 
-    Start SQL Server Management Studio (SSMS)
-    Connect to the SQL Server instance running in Docker to verify the connection.
+- **Organization**
+- **Users**
+- **User-Organization Association**
 
-    Database Initialization
-    No manual migration is required — the database and tables will be created automatically when you run GrpcService.
+Each service includes full **CRUD operations**.
 
-Endpoints
+### HttpService
+This is an **ASP.NET Core Web API** project that **consumes the GrpcService**. It exposes all the CRUD operations from the gRPC services over HTTP.
 
-Organization Operations - 
-    1. Create Organization
-    2. Get Organization by ID
-    3. Query Organizations (Paginated)
-    4. Update Organization
-    5. Delete Organization
+---
+
+## Project Setup
+
+### Docker Setup (SQL Server)
+
+1. **Install Docker**  
+   Download and install Docker from: [https://docs.docker.com/get-docker](https://docs.docker.com/get-docker)
+
+2. **Download and Run SQL Server Docker Image**
+
+   Run below script in terminal
+   
+   docker pull mcr.microsoft.com/mssql/server:2022-latest
+
+   docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Ap@12345" -p 1433:1433 mcr.microsoft.com/mssql/server:2022-latest
+
+3. **Check if the container is running**
+
+4. **Start SQL Server Management Studio (SSMS)**
+
+   Connect to the SQL Server instance running in Docker to verify the connection.
+   
+## Technologies Used
+
+- .NET Core 8.0
+- gRPC
+- ASP.NET Core Web API
+- Docker
+- SQL Server 2022

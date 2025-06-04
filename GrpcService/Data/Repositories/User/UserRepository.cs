@@ -92,7 +92,8 @@ namespace GrpcService.Data.Repositories.User
                     Name = o.Name,
                     UserName = o.UserName,
                     Email = o.Email,
-                    CreatedAt = o.CreatedAt
+                    CreatedAt = o.CreatedAt,
+                    UpdatedAt = o.UpdatedAt
                 }).ToList();
 
             var result = new QueryUsersResult

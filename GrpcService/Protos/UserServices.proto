@@ -47,7 +47,8 @@ message UsersList {
     string Name = 2;
     string Username = 3;
     string Email = 4;
-    int64 CreatedAt = 6;
+    int64 CreatedAt = 5;
+    google.protobuf.Int64Value UpdatedAt = 6;
 }
 
 message UpdateUserRequest {

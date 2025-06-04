@@ -95,7 +95,8 @@ namespace GrpcService.Controllers
                             Name=p.Name,
                             Username = p.UserName,
                             Email = p.Email,
-                            CreatedAt=p.CreatedAt
+                            CreatedAt=p.CreatedAt,
+                            UpdatedAt = p.UpdatedAt
                         })
                     }
                 };

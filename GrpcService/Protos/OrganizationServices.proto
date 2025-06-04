@@ -47,6 +47,7 @@ message OrganizationList {
     string name = 2;
     string address = 3;
     int64 createdAt = 4;
+    google.protobuf.Int64Value UpdatedAt = 5;
 }
 
 message UpdateOrganizationRequest {

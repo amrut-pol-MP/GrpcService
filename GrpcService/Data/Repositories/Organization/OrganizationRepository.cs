@@ -87,7 +87,8 @@ namespace GrpcService.Data.Repositories.Organization
                     Id = o.Id,
                     Name = o.Name,
                     Address = o.Address,
-                    CreatedAt = o.CreatedAt
+                    CreatedAt = o.CreatedAt,
+                    UpdatedAt = o.UpdatedAt
                 }).ToList();
 
             var result = new QueryOrganizationsResult
