@@ -124,5 +124,11 @@ namespace GrpcService.Data.Repositories.Organization
             entity.IsDeleted = true;
             context.SaveChanges();
         }
+
+        public bool GetOrganizationByNameAndOrgID(UpdateOrganizationCommand command)
+        {
+            var entity = context.Organizations.FirstOrDefault(s => s.Name == command.Name && s.Id != command.Id);
+            return true ? entity != null : false;
+        }
     }
 }

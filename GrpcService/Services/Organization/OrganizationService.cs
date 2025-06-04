@@ -81,6 +81,12 @@ namespace GrpcService.Services.Organization
                 throw new RpcException(new Status(StatusCode.InvalidArgument, "Organization Name is required."));
             }
 
+            //Check if organization name exists before updating.
+            if (organizationRepository.GetOrganizationByNameAndOrgID(command))
+            {
+                throw new RpcException(new Status(StatusCode.AlreadyExists, "Organization Name already exists."));
+            }
+
             organizationRepository.UpdateOrganization(command);
             return new EmptyResult();
         }

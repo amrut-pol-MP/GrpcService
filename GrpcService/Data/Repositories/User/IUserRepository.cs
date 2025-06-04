@@ -12,5 +12,7 @@ namespace GrpcService.Data.Repositories.User
         QueryUsersResult QueryUsers(QueryUserCommand criteria);
         void UpdateUser(UpdateUserCommand command);
         void DeleteUser(int id);
+        bool GetUserByEmailAndUserId(UpdateUserCommand command);
+        bool GetUserByUserNameAndUserId(UpdateUserCommand command);
     }
 }

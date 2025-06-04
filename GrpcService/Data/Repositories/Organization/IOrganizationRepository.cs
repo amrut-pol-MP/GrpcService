@@ -13,6 +13,6 @@ namespace GrpcService.Data.Repositories.Organization
         QueryOrganizationsResult QueryOrganizations(QueryOrganizationCommand criteria);
         void UpdateOrganization(UpdateOrganizationCommand command);
         void DeleteOrganization(int id);
-
+        bool GetOrganizationByNameAndOrgID(UpdateOrganizationCommand command);
     }
 }

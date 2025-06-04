@@ -30,13 +30,13 @@ namespace GrpcService.Data.Repositories.User
 
         public bool GetUserByEmail(string email)
         {
-            var entity = context.Users.FirstOrDefault(s => s.Email == email);
+            var entity = context.Users.FirstOrDefault(s => s.Email == email && !s.IsDeleted);
             return true ? entity != null : false;
         }
         
         public bool GetUserByUserName(string userName)
         {
-            var entity = context.Users.FirstOrDefault(s => s.UserName == userName);
+            var entity = context.Users.FirstOrDefault(s => s.UserName == userName && !s.IsDeleted);
             return true ? entity != null : false;
         }
 
@@ -134,6 +134,17 @@ namespace GrpcService.Data.Repositories.User
             entity.DeletedAt = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
             entity.IsDeleted = true;
             context.SaveChanges();
+        }
+
+        public bool GetUserByEmailAndUserId(UpdateUserCommand command)
+        {
+            var entity = context.Users.FirstOrDefault(s => s.Email == command.Email && s.Id != command.Id && !s.IsDeleted);
+            return true ? entity != null : false;
+        }
+        public bool GetUserByUserNameAndUserId(UpdateUserCommand command)
+        {
+            var entity = context.Users.FirstOrDefault(s => s.UserName == command.UserName && s.Id != command.Id && !s.IsDeleted);
+            return true ? entity != null : false;
         }
     }
 }

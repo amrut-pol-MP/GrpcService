@@ -85,6 +85,18 @@ namespace GrpcService.Services.User
             {
                 throw new RpcException(new Status(StatusCode.InvalidArgument, "Email is required."));
             }
+
+            //Check if user email exists before updating.
+            if (userRepository.GetUserByEmailAndUserId(command))
+            {
+                throw new RpcException(new Status(StatusCode.AlreadyExists, "User Email already exists."));
+            }
+            //Check if user name exists before updating.
+            if (userRepository.GetUserByUserNameAndUserId(command))
+            {
+                throw new RpcException(new Status(StatusCode.AlreadyExists, "User Name already exists."));
+            }
+
             userRepository.UpdateUser(command);
             return new EmptyResult();
         }
