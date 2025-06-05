@@ -40,6 +40,8 @@ This is an **ASP.NET Core Web API** project that **consumes the GrpcService**. I
 4. **Start SQL Server Management Studio (SSMS)**
 
    Connect to the SQL Server instance running in Docker to verify the connection.
+
+**Note** : There's no need to manually run any migration scripts. The database and tables will be created automatically when you start the GrpcService application.
    
 ## Technologies Used
 
